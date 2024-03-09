@@ -67,21 +67,21 @@ class _MakePaymentPageState extends State<MakePaymentPage> {
     List<String> words = speech.toLowerCase().split(' ');
 
     // Check if the speech contains the required keywords
-    if (words.contains('from') && words.contains('to')) {
-      // if (words.contains('from') &&
-      //     words.contains('to') &&
-      //     words.contains('pay')) {
+    // if (words.contains('from') && words.contains('to')) {
+    if (words.contains('from') &&
+        words.contains('to') &&
+        words.contains('pay')) {
       // Get the indices of 'from' and 'to' keywords
       int fromIndex = words.indexOf('from');
       int toIndex = words.indexOf('to');
-      // int payIndex = words.indexOf('pay');
+      int payIndex = words.indexOf('pay');
 
       // Extract the payer, payee, and amount
       String payer = words.getRange(fromIndex + 1, toIndex).join(' ');
-      String payee = words.getRange(toIndex + 1, words.length).join(' ');
+      String payee = words.getRange(toIndex + 1, payIndex).join(' ');
       // String amount = words.getRange(payIndex + 1, words.length).join(' ');
-      // String amount = words.elementAt(fromIndex - 1);
-      String amount = fromIndex > 0 ? words.elementAt(fromIndex - 1) : '';
+      String amount = words.elementAt(payIndex + 1);
+      // String amount = fromIndex > 0 ? words.elementAt(fromIndex - 1) : '';
 
       print('Parsed payer: $payer'); // Debug print
       print('Parsed payee: $payee'); // Debug print
@@ -150,7 +150,7 @@ class _MakePaymentPageState extends State<MakePaymentPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Speech Recognition Demo'),
+        title: const Text('Speech Recognition'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

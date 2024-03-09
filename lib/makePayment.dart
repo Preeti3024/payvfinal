@@ -18,7 +18,7 @@ class _MakePaymentState extends State<MakePayment> {
     final amount = double.parse(_amountController.text);
 
     // Replace this with your actual logic for checking existing payee
-    final existingPayee = true;
+    const existingPayee = true;
 
     if (existingPayee) {
       final response = await http.post(
@@ -57,41 +57,41 @@ class _MakePaymentState extends State<MakePayment> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Make Payment'),
+        title: const Text('Make Payment'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
+            const Text(
               'Make Payment',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             TextField(
               controller: _payerController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Payer',
               ),
             ),
             TextField(
               controller: _payeeController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Payee',
               ),
             ),
             TextField(
               controller: _amountController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Amount',
               ),
               keyboardType: TextInputType.number,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             ElevatedButton(
               onPressed: createPayment,
-              child: Text('Make Payment'),
+              child: const Text('Make Payment'),
             ),
           ],
         ),

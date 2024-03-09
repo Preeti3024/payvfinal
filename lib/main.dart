@@ -3,6 +3,7 @@ import 'dart:js';
 import 'package:flutter/material.dart';
 import 'package:vpay/alluser.dart';
 import 'package:vpay/createuser.dart';
+import 'package:vpay/deleteuser.dart';
 import 'package:vpay/voiceActivate.dart';
 import 'makePayment.dart';
 import 'package:vpay/signUp.dart';
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => HomePage(),
         "/users": (context) => const AllUser(),
         '/createUser': (context) => CreateUser(),
+        '/deleteUser': (context) => DeleteUser(),
       },
     );
   }
@@ -77,15 +79,15 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        elevation: 0.0,
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.black,
+      //   elevation: 0.0,
+      // ),
       body: SingleChildScrollView(
         reverse: true,
         child: Container(
-          width: 393,
-          height: 768,
+          width: 500,
+          height: 620,
           clipBehavior: Clip.antiAlias,
           decoration: ShapeDecoration(
             color: Color.fromARGB(255, 201, 205, 147),
@@ -188,7 +190,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 19, 18, 18),
+        backgroundColor: Color(0xFF121212),
         leading: IconButton(
           icon: const Icon(Icons.menu), // Hamburger menu icon
           color: Color.fromARGB(255, 255, 255, 255),
@@ -245,7 +247,8 @@ class HomePage extends StatelessWidget {
               leading: const Icon(Icons.delete),
               title: const Text('Delete Account'),
               onTap: () {
-                // Handle settings menu item tap here
+                Navigator.pushNamed(context, '/deleteUser');
+                // Handle home menu item tap here
               },
             ),
           ],
@@ -255,7 +258,7 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Container(
-            width: 400,
+            width: 397,
             height: 730,
             clipBehavior: Clip.antiAlias,
             decoration: ShapeDecoration(
@@ -388,40 +391,40 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
 
-                Positioned(
-                  left: 44,
-                  top: 280,
-                  child: SizedBox(
-                    width: 300,
-                    height: 32,
-                    child: Row(
-                      children: [
-                        const Text(
-                          'Recent Transaction',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: 'Alata',
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        const SizedBox(
-                            width: 145), // Add spacing between text and button
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/users');
-                            // print('Arrow button tapped!');
-                          },
-                          child: const Icon(
-                            Icons.arrow_forward,
-                            color: Colors.white,
-                            size: 16,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                // Positioned(
+                //   left: 44,
+                //   top: 280,
+                //   child: SizedBox(
+                //     width: 300,
+                //     height: 32,
+                //     child: Row(
+                //       children: [
+                //         const Text(
+                //           'Recent Transaction',
+                //           style: TextStyle(
+                //             color: Colors.white,
+                //             fontSize: 16,
+                //             fontFamily: 'Alata',
+                //             fontWeight: FontWeight.w400,
+                //           ),
+                //         ),
+                //         const SizedBox(
+                //             width: 145), // Add spacing between text and button
+                //         GestureDetector(
+                //           onTap: () {
+                //             Navigator.pushNamed(context, '/users');
+                //             // print('Arrow button tapped!');
+                //           },
+                //           child: const Icon(
+                //             Icons.arrow_forward,
+                //             color: Colors.white,
+                //             size: 16,
+                //           ),
+                //         ),
+                //       ],
+                //     ),
+                //   ),
+                // ),
 
                 Positioned(
                   left: 44,

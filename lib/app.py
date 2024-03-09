@@ -38,7 +38,11 @@ class Payment(db.Model):
             'payee': self.payee,
             'amount': self.amount
         }
-    
+
+ # Create the database tables
+with app.app_context():
+    db.create_all()   
+
 def capture_speech():
   recognizer = sr.Recognizer()
   with sr.Microphone() as source:
@@ -56,14 +60,11 @@ def capture_speech():
     return None
 
 
-# Create the database tables
-with app.app_context():
-    db.create_all()
+
 
 @app.route('/')
 def index():
     return "Welcome to my Flask API!"
-
 
 
 @app.route('/users', methods=['POST'])
@@ -76,6 +77,17 @@ def create_user():
     return jsonify({'message': 'User created successfully'})
 
 
+@app.route('/users/<username>', methods=['DELETE'])
+def delete_user(username):
+    user = User.query.filter_by(username=username).first()
+    if user:
+        db.session.delete(user)
+        db.session.commit()
+        return jsonify({'message': 'User deleted successfully'})
+    else:
+        return jsonify({'message': 'User not found'}), 404
+
+
 @app.route('/users', methods=['GET'])
 def get_users():
     users = User.query.all()
@@ -84,15 +96,17 @@ def get_users():
 
 @app.route('/payments', methods=['POST'])
 def create_payment():
-    # payer = request.json.get('payer')
-    # payee = request.json.get('payee')
-    # amount = request.json.get('amount')
+    payer = request.json.get('payer')
+    payee = request.json.get('payee')
+    amount = request.json.get('amount')
+
     speech_text = capture_speech()
     if not speech_text:
         return jsonify({'message': 'Failed to capture speech input'}), 400
 
     # Parse text to extract payment information (replace with your parsing logic)
     # This is a basic example, you'll need to improve it for real-world use
+    
     try:
         parts = speech_text.split(" to ")
         payer = parts[0].strip()

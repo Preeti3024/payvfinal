@@ -1,6 +1,6 @@
 {
-    "name": "finalpayv",
-    "short_name": "finalpayv",
+    "name": "vpay",
+    "short_name": "vpay",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
