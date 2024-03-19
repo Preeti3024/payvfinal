@@ -41,6 +41,11 @@ dependencies:
   audioplayers: ^4.1.0
   microphone: ^0.1.0
   flutter_sound: ^9.2.13
+  firebase_core: ^2.27.0
+  firebase_auth: ^4.17.8
+  google_sign_in: ^6.2.1
+  record: ^5.0.4
+  permission_handler: ^11.3.0
 
 dev_dependencies:
   flutter_test:

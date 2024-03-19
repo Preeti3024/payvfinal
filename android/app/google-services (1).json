@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "592004890498",
+    "project_id": "payv-1c710",
+    "storage_bucket": "payv-1c710.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592004890498:android:38e7aaff7bfe97b1cc599b",
+        "android_client_info": {
+          "package_name": "com.example.vpay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "592004890498-l9s7e8intck7ermkuvudk690amrerar9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz4ZcwuVR7HHfmXzw9G1Y2iFcny46_EHg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "592004890498-l9s7e8intck7ermkuvudk690amrerar9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
